@@ -1,0 +1,83 @@
+* {
+  /*color: hotpink;*/
+}
+
+body {
+  background-color: beige;
+  font-size: 1.1rem;
+}
+
+h1 {
+  color: red;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-font {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h2 {
+  color: blue;
+  font-weight: bold;
+}
+
+h3 {
+  color: brown;
+}
+
+.blue-color {
+  color: blue;
+}
+
+#outcome {
+  color: limegreen;
+  border: 3px dashed brown;
+}
+
+section {
+  text-align: center;
+  border: 1px solid red;
+}
+
+/*li{
+    color: violet;
+  }
+
+/* h1 {
+  color: red;
+}  */
+
+/* h2 {
+  color: blue;
+  font-weight: bold;
+}
+
+h3 {
+  color: brown;
+}
+
+p {
+  color: grey;
+} */
+
+/*
+curly braces { } - grouping
+square brackerts [ ] - js
+round brackets ( ) - js
+parantheses < > - html
+smicolon ; to end a line
+colon : property declaration
+syntax : rules of a lang
+hypen - to connect words
+back slash /
+foward slash \
+universal selector *{ }
+
+
+*/
