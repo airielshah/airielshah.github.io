@@ -20,7 +20,7 @@ p {
   padding: 20px;
   margin-bottom: 20px;
   /* line-height: 200px; */
-  border-bottom: 3px dashed rgba(0, 128, 0, 0.345);
+  border-bottom: 3px dashed rgba(0, 128, 0, 0.521);
   background-color: beige;
 }
 
@@ -28,4 +28,9 @@ p {
   line-height: 160px;
   /* height - top padding - bottom padding */
   /* 200 - 20 - 20 = 160 */
+}
+
+span {
+  color: blue;
+  /* display: block; */
 }
