@@ -34,3 +34,13 @@ span {
   color: blue;
   /* display: block; */
 }
+
+.blue-color {
+  display: inline;
+  color: blueviolet;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+}
