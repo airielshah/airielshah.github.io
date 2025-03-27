@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box model example</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>
+      Learning
+      <span>box model</span>
+    </h1>
+    <!-- p>lorem30 TAB -->
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius culpa
+      recusandae saepe, unde quo ipsa nostrum, voluptatem, illo error molestiae
+      corporis quasi ratione voluptate accusamus quia? Recusandae quidem vero
+      earum.
+    </p>
+
+    <!-- p>lorem100 TAB -->
+    <p class="vcentre">My paragraph</p>
+  </body>
+</html>
