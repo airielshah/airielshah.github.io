@@ -58,6 +58,7 @@ for (let i = 0; i < blogPosts.length; i++) {
   formattedContent += `
     <section id="box${i + 1}">
       <h1>${blogPosts[i].title}</h1>
+      <p>${blogPosts[i].author}<p>
       <p>${blogPosts[i].content}</p>
     </section>
   `;
