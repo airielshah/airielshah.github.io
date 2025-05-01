@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #1e1e1e;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.playlist-section,
+.player-section,
+.pomodoro-section {
+  margin-bottom: 40px;
+}
+
+.song-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.song-item {
+  background-color: #2a2a2a;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 150px;
+  text-align: center;
+}
+
+.song-item img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.now-playing {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.now-playing img {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+}
+
+.controls button,
+.pomodoro-controls button {
+  margin: 5px;
+  padding: 10px 20px;
+  background-color: #1db954;
+  border: none;
+  border-radius: 20px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+#timer-display {
+  font-size: 2em;
+  margin: 10px 0;
+}

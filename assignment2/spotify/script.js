@@ -11,6 +11,18 @@ const playlist = [
     src: "media/song2.mp3",
     cover: "media/cover2.png",
   },
+  {
+    title: "Third Song",
+    artist: "Artist 3",
+    src: "media/song1.mp3",
+    cover: "media/cover1.png",
+  },
+  {
+    title: "Fourth Song",
+    artist: "Artist 4",
+    src: "media/song2.mp3",
+    cover: "media/cover2.png",
+  },
 ];
 
 let currentIndex = 0;
