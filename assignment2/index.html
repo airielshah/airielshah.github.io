@@ -2,12 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- add the font family of your choice -->
-    <link rel="stylesheet" href="reset.css" />
+    <title>Local Spotify Player</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
   </head>
   <body>
     <!-- Header Section -->
@@ -15,64 +11,83 @@
       <h1>Media Player Website</h1>
     </header>
 
-    <!-- Navigation Section -->
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Videos</a></li>
-        <li><a href="#">Music</a></li>
-        <li><a href="#">Playlists</a></li>
-        <!-- Add or remove navigation items as needed -->
-      </ul>
-    </nav>
-
-    <!-- Main Content Section -->
-    <main class="container">
-      <!-- Media Player Section -->
-      <div class="media-player">
-        <video id="custom-video-player" controls>
-          <source
-            src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/miac.mp4"
-            type="video/mp4"
-          />
-        </video>
-        <div class="custom-controls">
-          <button id="play-pause-btn" onclick="togglePlayPause()">
-            <img
-              id="play-pause-img"
-              src="https://img.icons8.com/ios-glyphs/30/play--v1.png"
-              alt="Play Button"
-              width="24"
-              height="24"
-            />
-          </button>
-          <!-- add the missing buttons or functionality here -->
-          <div class="progress-bar">
-            <span id="progress-bar-fill"></span>
+    <div class="container">
+      <div class="player">
+        <!-- ... existing player UI ... -->
+        <div class="now-playing">
+          <img id="cover" src="media/cover1.png" alt="Cover" />
+          <div>
+            <h2 id="title">Song Title</h2>
+            <p id="artist">Artist</p>
           </div>
+        </div>
+
+        <audio id="audio" preload="metadata"></audio>
+
+        <input type="range" id="progress" value="0" min="0" max="100" />
+
+        <div class="controls">
+          <button id="prev">⏮</button>
+          <button id="play">▶️</button>
+          <button id="next">⏭</button>
+          <label for="volume">Volume</label>
+          <input
+            type="range"
+            id="volume"
+            min="0"
+            max="1"
+            step="0.01"
+            value="1"
+          />
         </div>
       </div>
 
-      <div class="playlist">
-        <h3>Playlist</h3>
-        <ul id="playlist"></ul>
+      <!-- RIGHT COLUMN: Playlist + Pomodoro -->
+      <div class="sidebar">
+        <div class="playlist" id="playlist"></div>
+        <div class="pomodoro">
+          <h3 id="pomodoro-label">Work Session</h3>
+          <svg class="timer-svg" width="150" height="150">
+            <circle
+              cx="75"
+              cy="75"
+              r="65"
+              stroke="#444"
+              stroke-width="10"
+              fill="none"
+            />
+            <circle
+              id="progressCircle"
+              cx="75"
+              cy="75"
+              r="65"
+              stroke="#1db954"
+              stroke-width="10"
+              fill="none"
+              stroke-dasharray="408"
+              stroke-dashoffset="0"
+              transform="rotate(-90 75 75)"
+            />
+            <text
+              id="timerText"
+              x="50%"
+              y="55%"
+              text-anchor="middle"
+              fill="#fff"
+              font-size="20px"
+            >
+              25:00
+            </text>
+          </svg>
+          <div class="pomodoro-controls">
+            <button id="startPomodoro">Start</button>
+            <button id="pausePomodoro">Pause</button>
+            <button id="resetPomodoro">Reset</button>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <!-- Additional Content Section -->
-      <section>
-        <h2>Additional Content</h2>
-        <p>This is where you can showcase any other relevant content.</p>
-        <!-- Add more content as needed -->
-      </section>
-    </main>
-
-    <!-- Footer Section -->
-    <footer>
-      <p>&copy; 2024 Media Player Website. All rights reserved.</p>
-      <a href="https://icons8.com/icon/59862/play">Play</a> icon by
-      <a href="https://icons8.com">Icons8</a>
-      <a href="https://icons8.com/icon/61012/pause">Pause</a> icon by
-      <a href="https://icons8.com">Icons8</a>
-    </footer>
+    <script src="script.js"></script>
   </body>
 </html>
