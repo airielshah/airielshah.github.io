@@ -201,8 +201,7 @@ input[type="range"] {
 
 /* Footer styling */
 footer {
-  position: fixed;
-  bottom: 0;
+  position: sticky;
   margin-top: 40px;
   text-align: center;
   padding: 20px;
