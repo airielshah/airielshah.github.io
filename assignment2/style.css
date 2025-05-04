@@ -204,6 +204,9 @@ footer {
   position: sticky;
   margin-top: 40px;
   text-align: center;
-  padding: 20px;
   width: 100%;
+}
+
+p {
+  text-align: center;
 }
