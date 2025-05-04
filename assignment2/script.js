@@ -1,30 +1,27 @@
+// Music source and information library, all asset are sorted here for easy fetch
 const playlist = [
   {
-    title: "First Song",
-    artist: "Artist 1",
+    title: "In My Blood",
+    artist: "Shawn Mendes",
     src: "media/song1.mp3",
     cover: "media/cover1.png",
   },
   {
-    title: "Second Song",
-    artist: "Artist 2",
+    title: "Youth (feat. Khalid)",
+    artist: "Shawn Mendes, DJ Khalid",
     src: "media/song2.mp3",
     cover: "media/cover2.png",
   },
   {
-    title: "Third Song",
-    artist: "Artist 3",
-    src: "media/song1.mp3",
-    cover: "media/cover1.png",
-  },
-  {
-    title: "Fourth Song",
-    artist: "Artist 4",
-    src: "media/song2.mp3",
-    cover: "media/cover2.png",
+    title: "TikTok Chillout Mix",
+    artist: "DJ Ashre Finix",
+    src: "https://archive.org/download/Tiktok-Mixtapes/TikTok%20Chillout%20Mix.mp3",
+    cover:
+      "https://resources.tidal.com/images/ec535484/69fe/4f18/a61b/1dfa20a3bb8e/640x640.jpg",
   },
 ];
 
+// Index element and function
 let currentIndex = 0;
 
 const audio = document.getElementById("audio");
@@ -39,6 +36,7 @@ const artist = document.getElementById("artist");
 const cover = document.getElementById("cover");
 const playlistContainer = document.getElementById("playlist");
 
+// Player function
 function loadSong(index) {
   const song = playlist[index];
   title.textContent = song.title;
@@ -48,7 +46,7 @@ function loadSong(index) {
   audio.load();
   audio.play(); //  Autoplay
   playBtn.textContent = "⏸️"; // Update button icon
-  renderPlaylist(); // 🔄 Update active highlight
+  renderPlaylist(); // Update active highlight
 }
 
 audio.onended = () => {
@@ -56,16 +54,19 @@ audio.onended = () => {
   loadSong(currentIndex); // autoplay will happen here
 };
 
+// Play Button icon indicator
 function playSong() {
   audio.play();
   playBtn.textContent = "⏸️";
 }
 
+// Pause button icon indicator
 function pauseSong() {
   audio.pause();
   playBtn.textContent = "▶️";
 }
 
+// Play-pause, Next and Prev button function
 playBtn.onclick = () => {
   if (audio.paused) {
     playSong();
@@ -86,6 +87,7 @@ prevBtn.onclick = () => {
   playSong();
 };
 
+// Audio function and progress bar
 audio.ontimeupdate = () => {
   if (!isNaN(audio.duration)) {
     progress.value = (audio.currentTime / audio.duration) * 100;
@@ -98,10 +100,12 @@ progress.oninput = () => {
   }
 };
 
+// Volume adjustment bar
 volume.oninput = () => {
   audio.volume = volume.value;
 };
 
+// Playlist function
 function renderPlaylist() {
   playlistContainer.innerHTML = "";
   playlist.forEach((song, index) => {
@@ -123,9 +127,11 @@ function renderPlaylist() {
 renderPlaylist();
 loadSong(currentIndex);
 
-// Pomodoro session
-const WORK_DURATION = 25 * 60; // 25 minutes
-const BREAK_DURATION = 5 * 60; // 5 minutes
+// Pomodoro timer function
+// Credit to OpenAI (ChatGPT,2025) for the reference and guide in making this action
+// I set the duration time into 30 seconds each for review purposed.
+const WORK_DURATION = 0.5 * 60; // 25 minutes
+const BREAK_DURATION = 0.5 * 60; // 5 minutes
 let isWorkSession = true;
 let timeLeft = WORK_DURATION;
 let pomodoroInterval = null;
@@ -136,6 +142,7 @@ const pomodoroLabel = document.getElementById("pomodoro-label");
 
 const circumference = 2 * Math.PI * 65;
 progressCircle.style.strokeDasharray = circumference;
+progressCircle.style.strokeDashoffset = 0;
 
 function updateTimerUI() {
   const minutes = Math.floor(timeLeft / 60)
@@ -150,11 +157,29 @@ function updateTimerUI() {
   progressCircle.style.strokeDashoffset = offset;
 }
 
+// Pomodoro theme switch
+// Credit to OpenAI (ChatGPT,2025) for the reference and guide in making this action
 function switchSession() {
   isWorkSession = !isWorkSession;
   timeLeft = isWorkSession ? WORK_DURATION : BREAK_DURATION;
   pomodoroLabel.textContent = isWorkSession ? "Work Session" : "Break Time";
   updateTimerUI();
+  updateTheme();
+}
+
+resetPomodoro = () => {
+  pausePomodoro();
+  timeLeft = isWorkSession ? WORK_DURATION : BREAK_DURATION;
+  updateTimerUI();
+  updateTheme();
+};
+
+updateTimerUI();
+updateTheme();
+
+function updateTheme() {
+  document.body.classList.remove("focus-theme", "break-theme");
+  document.body.classList.add(isWorkSession ? "focus-theme" : "break-theme");
 }
 
 function startPomodoro() {
@@ -183,9 +208,10 @@ function resetPomodoro() {
   pausePomodoro();
   timeLeft = isWorkSession ? WORK_DURATION : BREAK_DURATION;
   updateTimerUI();
+  updateTheme();
 }
 
-// Button event listeners
+// Pomodoro Button event listeners
 document.getElementById("startPomodoro").onclick = startPomodoro;
 document.getElementById("pausePomodoro").onclick = pausePomodoro;
 document.getElementById("resetPomodoro").onclick = resetPomodoro;

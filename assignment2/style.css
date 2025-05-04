@@ -1,49 +1,91 @@
 body {
-  background-image: url(background.gif);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  font-family: Arial, sans-serif;
-  background: #121212;
-  color: white;
+  font-family: "Courier New";
   display: flex;
   justify-content: center;
   padding: 30px;
 }
 
+body {
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+/* Theme Design */
+/* Light Theme (before Pomodoro starts or during breaks) */
+/* This theme was design in light and blueish colour indicate relaxation and calm */
+body.break-theme {
+  background: #eeaeca;
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  color: #424242;
+}
+
+body.break-theme .player,
+body.break-theme .playlist,
+body.break-theme .pomodoro,
+body.break-theme header,
+body.break-theme footer {
+  background: #dde0e17d;
+  color: #424242;
+}
+
+body.break-theme .playlist-item.active {
+  border-left-color: #a71db9;
+}
+
+/* Dark Theme (during focus) */
+/* this black and contrast colour indicate the focus and sharp element to focus on */
+body.focus-theme {
+  background-color: #121212;
+  color: #fff;
+}
+
+body.focus-theme header,
+body.focus-theme .player,
+body.focus-theme .playlist,
+body.focus-theme .pomodoro,
+body.focus-theme footer {
+  background-color: #242424;
+  color: #fff;
+}
+
 /* Header styling */
 header {
-  background-color: rgb(45, 45, 45);
-  color: white;
   padding: 10px 0;
   text-align: center;
-  width: 100%;
+  width: 106%;
+  margin-top: -40px;
+}
+
+h2 {
+  margin-top: 10px;
 }
 
 h3 {
   font-style: italic;
   font-weight: 1;
   text-align: center;
-  font-size: 20px;
-  width: 70%;
+  font-size: 18px;
+  width: auto;
   margin-bottom: 20px;
 }
 
+/* Pomodoro text styling */
+h4 {
+  margin-top: -5px;
+  font-weight: 5;
+}
+
+/* Media Player Card Styling */
 .container {
   display: flex;
   gap: 20px;
   align-items: flex-start;
-}
-
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
-  width: 300px;
 }
 
 .player {
@@ -51,7 +93,7 @@ h3 {
   background: #1e1e1e;
   border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 30px #00000058;
 }
 
 .now-playing {
@@ -79,6 +121,15 @@ input[type="range"] {
   margin: 5px 0;
 }
 
+/* Playlist and Pomodoro Card Styling */
+/* In this Playlist card, I design it to show the current playing song and list of song in visible way */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  width: 300px;
+}
+
 .playlist {
   width: 280px;
   background: #1a1a1a;
@@ -86,6 +137,7 @@ input[type="range"] {
   border-radius: 15px;
   max-height: 500px;
   overflow-y: auto;
+  box-shadow: 0 4px 30px #00000058;
 }
 
 .playlist-item {
@@ -97,8 +149,9 @@ input[type="range"] {
   transition: background 0.2s;
 }
 
+/* The hover function added to indicate the mouse pointing selected song */
 .playlist-item:hover {
-  background: #333;
+  background: #ffffff27;
 }
 
 .playlist-item img {
@@ -108,12 +161,12 @@ input[type="range"] {
 }
 
 .playlist-item.active {
-  background: #333;
-  border-left: 4px solid #1db954; /* Spotify green */
+  background: #ffffff27;
+  border-left: 5px solid #a71db9;
   padding-left: 6px;
 }
 
-/* Pomodoro session ui */
+/* Pomodoro Timer UI */
 .pomodoro {
   background: #262626;
   padding: 30px;
@@ -121,6 +174,7 @@ input[type="range"] {
   border-radius: 12px;
   text-align: center;
   color: #fff;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .timer-svg {
@@ -133,11 +187,19 @@ input[type="range"] {
   padding: 6px 12px;
   border: none;
   border-radius: 6px;
-  background-color: #1db954;
+  background-color: #a71db9;
   color: white;
   cursor: pointer;
 }
 
 .pomodoro-controls button:hover {
-  background-color: #169944;
+  background-color: #991ca9;
+}
+
+/* Footer styling */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
 }

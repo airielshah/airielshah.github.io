@@ -2,25 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Local Spotify Player</title>
+    <title>Assignment 2 Media Player</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="break-theme">
     <!-- Header Section -->
+    <!-- This is where I wrote the heading and information about the media player I made. -->
     <header>
-      <h1>Music Player for Study</h1>
+      <h1>Pomodoro Study Music Player</h1>
     </header>
     <h3>
-      This is music player for study and focus with additional Pomodoro timer to
-      guide the student and minimal the interaction with the screen time
-      searching for ambient background music.
+      This is a music player dedicated to study sessions using the Pomodoro
+      method. During the focus period, the UI theme will be dark and
+      minimalistic. Meanwhile, the UI will be lighter and more colourful during
+      break time, indicating a relaxing time.
     </h3>
 
     <div class="container">
+      <!-- LEFT COLUMN: Music Player -->
+      <!-- This is the main structure of the media player card, all button and interface was made minimalist to minimise the interaction during the focus period of study -->
       <div class="player">
-        <!-- ... existing player UI ... -->
         <div class="now-playing">
           <img id="cover" src="media/cover1.png" alt="Cover" />
+
+          <!-- The song source, title and artist name was linked from script file -->
           <div>
             <h2 id="title">Song Title</h2>
             <p id="artist">Artist</p>
@@ -29,12 +34,16 @@
 
         <audio id="audio" preload="metadata"></audio>
 
+        <!-- Song progress bar -->
         <input type="range" id="progress" value="0" min="0" max="100" />
 
+        <!-- Audio controls -->
         <div class="controls">
           <button id="prev">⏮</button>
           <button id="play">▶️</button>
           <button id="next">⏭</button>
+
+          <!-- Volume control -->
           <label for="volume">Volume</label>
           <input
             type="range"
@@ -49,9 +58,17 @@
 
       <!-- RIGHT COLUMN: Playlist + Pomodoro -->
       <div class="sidebar">
-        <div class="playlist" id="playlist"></div>
+        <!-- Playlist Card -->
+        <div class="playlist" id="playlist">
+          <h3>Playlist</h3>
+
+          <!-- Pomodoro Card -->
+        </div>
         <div class="pomodoro">
-          <h2 id="pomodoro-label">Work Session</h2>
+          <h2 id="pomodoro-label">Pomodoro Timer</h2>
+          <h4>25 minutes - Focus time 5 minutes - Break time</h4>
+
+          <!-- Pomodoro circle timer -->
           <svg class="timer-svg" width="150" height="150">
             <circle
               cx="75"
@@ -66,7 +83,7 @@
               cx="75"
               cy="75"
               r="65"
-              stroke="#1db954"
+              stroke="#a71db9"
               stroke-width="10"
               fill="none"
               stroke-dasharray="408"
@@ -84,6 +101,8 @@
               25:00
             </text>
           </svg>
+
+          <!-- Pomodoro control button -->
           <div class="pomodoro-controls">
             <button id="startPomodoro">Start</button>
             <button id="pausePomodoro">Pause</button>
@@ -92,7 +111,13 @@
         </div>
       </div>
     </div>
-
     <script src="script.js"></script>
+    <footer>
+      <p>
+        &copy; 2025 Pomodoro Study Music Player. All rights reserved. |
+        Reference: OpenAI. (2025). ChatGPT (Mar 14 version). Internet Archive.
+        (2025). DJ Ahsre Finix. TikTok Mixtapes.
+      </p>
+    </footer>
   </body>
 </html>
