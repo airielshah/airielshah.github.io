@@ -130,8 +130,8 @@ loadSong(currentIndex);
 // Pomodoro timer function
 // Credit to OpenAI (ChatGPT,2025) for the reference and guide in making this action
 // I set the duration time into 30 seconds each for review purposed.
-const WORK_DURATION = 0.5 * 60; // 25 minutes
-const BREAK_DURATION = 0.5 * 60; // 5 minutes
+const WORK_DURATION = 5 * 60; // 25 minutes
+const BREAK_DURATION = 5 * 60; // 5 minutes
 let isWorkSession = true;
 let timeLeft = WORK_DURATION;
 let pomodoroInterval = null;
