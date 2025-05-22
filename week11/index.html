@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Teh Tarik Challenge</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Teh Tarik Challenge</h1>
+
+    <div id="game">
+      <img src="cup_top.png" id="cupTop" class="cup" draggable="false" />
+      <div id="stream"></div>
+      <div id="cupBottomContainer">
+        <img src="cup_top.png" id="cupBottom" class="cup" draggable="false" />
+        <div id="fill"></div>
+      </div>
+    </div>
+
+    <div id="result">Drag the top cup to pour teh!</div>
+    <button onclick="resetGame()">Try Again</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

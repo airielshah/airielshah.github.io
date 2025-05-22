@@ -1,0 +1,92 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background: #fef3c7;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #a16207;
+}
+
+#game {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: 40px auto;
+  border: 2px dashed #eab308;
+  background-color: #fffbe6;
+  overflow: hidden;
+}
+
+.cup {
+  width: 100px;
+  position: absolute;
+  user-select: none;
+}
+
+#cupTop {
+  top: 50px;
+  left: 100px;
+  cursor: grab;
+  transition: transform 0.2s;
+}
+
+#cupBottomContainer {
+  position: absolute;
+  bottom: 50px;
+  left: 250px;
+  width: 100px;
+  height: 150px;
+}
+
+#cupBottom {
+  width: 120%;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: -10px;
+}
+
+#fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #d97706;
+  z-index: 0;
+  border-radius: 0 0 30px 30px;
+}
+
+#stream {
+  position: absolute;
+  width: 8px;
+  height: 0;
+  background-color: #d97706;
+  left: 280px;
+  top: 160px;
+  z-index: 1;
+  transition: height 0.1s;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #78350f;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #facc15;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #fbbf24;
+}
