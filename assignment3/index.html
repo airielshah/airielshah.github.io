@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Let’s Make Nasi Lemak</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">BREAKFAST <span>Like Malaysian</span></div>
+      <h1 class="title">Let’s Make Nasi Lemak</h1>
+    </div>
+
+    <div class="game-container">
+      <div class="left-panel">
+        <div class="recipe">
+          Here are the recepi, please follow it according to the step. Add Rice,
+          Egg, Cucumber, Anchovies, Sambal. After finish it, click Finish to see
+          the result.
+        </div>
+        <button id="resetBtn">Reset</button>
+        <button id="finishBtn">Finish</button>
+      </div>
+
+      <div class="plate-area">
+        <div class="drop-zone outer"></div>
+        <div class="drop-zone middle"></div>
+        <div class="drop-zone inner"></div>
+        <img src="images/plate.png" alt="Plate" class="plate-img" />
+      </div>
+
+      <div class="right-panel">
+        <div class="item-box" draggable="true" data-name="Rice">
+          <div class="tooltip-container">
+            <img src="images/rice.png" alt="Rice" />
+            <div class="tooltip-image">
+              <img src="images/rice-desc.png" alt="Rice description" />
+            </div>
+          </div>
+          <div class="label">Rice</div>
+        </div>
+        <div class="item-box" draggable="true" data-name="Egg">
+          <img src="images/egg.png" alt="Egg" />
+          <div class="label">Egg</div>
+        </div>
+        <div class="item-box" draggable="true" data-name="Cucumber">
+          <img src="images/cucumber.png" alt="Cucumber" />
+          <div class="label">Cucumber</div>
+        </div>
+        <div class="item-box" draggable="true" data-name="Anchovies">
+          <img src="images/anchovies.png" alt="Anchovies" />
+          <div class="label">Anchovies</div>
+        </div>
+        <div class="item-box" draggable="true" data-name="Sambal">
+          <img src="images/sambal.png" alt="Sambal" />
+          <div class="label">Sambal</div>
+        </div>
+        <div class="item-box" draggable="true" data-name="Rice">
+          <img src="images/rice.png" alt="Rice" />
+          <div class="label">Rice</div>
+        </div>
+        <div class="item-box" draggable="true" data-name="Egg">
+          <img src="images/egg.png" alt="Egg" />
+          <div class="label">Egg</div>
+        </div>
+        <div class="item-box" draggable="true" data-name="Cucumber">
+          <img src="images/cucumber.png" alt="Cucumber" />
+          <div class="label">Cucumber</div>
+        </div>
+        <div class="item-box" draggable="true" data-name="Anchovies">
+          <img src="images/anchovies.png" alt="Anchovies" />
+          <div class="label">Anchovies</div>
+        </div>
+        <div class="item-box" draggable="true" data-name="Sambal">
+          <img src="images/sambal.png" alt="Sambal" />
+          <div class="label">Sambal</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
