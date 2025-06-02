@@ -30,7 +30,7 @@ h1 {
   top: 50px;
   left: 100px;
   cursor: grab;
-  transition: transform 0.2s;
+  transition: transform 0.3s;
 }
 
 #cupBottomContainer {
@@ -66,7 +66,7 @@ h1 {
   height: 0;
   background-color: #d97706;
   left: 280px;
-  top: 160px;
+  top: 150px;
   z-index: 1;
   transition: height 0.1s;
 }

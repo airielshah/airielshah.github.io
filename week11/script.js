@@ -5,59 +5,63 @@ const fill = document.getElementById("fill");
 const result = document.getElementById("result");
 
 let isDragging = false;
-let offsetX, offsetY;
-let pourInterval;
+let pourInterval = null;
 let fillLevel = 0;
 
-cupTop.addEventListener("mousedown", (e) => {
+// Use mousemove for precise dragging
+cupTop.addEventListener("mousedown", () => {
   isDragging = true;
-  offsetX = e.offsetX;
-  offsetY = e.offsetY;
-  cupTop.style.cursor = "grabbing";
+  document.body.style.cursor = "grabbing";
 });
 
 document.addEventListener("mousemove", (e) => {
-  if (isDragging) {
-    let x = e.clientX - cupTop.offsetWidth / 2;
-    let y = e.clientY - cupTop.offsetHeight / 2;
-    cupTop.style.left = x + "px";
-    cupTop.style.top = y + "px";
+  if (!isDragging) return;
 
-    if (isOverCupBottom(x, y)) {
-      cupTop.style.transform = "rotate(60deg)";
-      startPouring();
-    } else {
-      cupTop.style.transform = "rotate(0deg)";
-      stopPouring();
-    }
+  // Calculate center alignment
+  const x = e.clientX - cupTop.offsetWidth / 2;
+  const y = e.clientY - cupTop.offsetHeight / 2;
+
+  cupTop.style.left = `${x}px`;
+  cupTop.style.top = `${y}px`;
+
+  if (isOverBottomCup(x + cupTop.offsetWidth / 2, y + cupTop.offsetHeight)) {
+    cupTop.style.transform = "rotate(60deg)";
+    startPouring();
+  } else {
+    cupTop.style.transform = "rotate(0deg)";
+    stopPouring();
   }
 });
 
 document.addEventListener("mouseup", () => {
   isDragging = false;
-  cupTop.style.cursor = "grab";
+  document.body.style.cursor = "default";
+  cupTop.style.transform = "rotate(0deg)";
   stopPouring();
 });
 
-function isOverCupBottom(x, y) {
-  const rect = cupBottom.getBoundingClientRect();
+function isOverBottomCup(centerX, bottomY) {
+  const cupRect = cupBottom.getBoundingClientRect();
   return (
-    x + 50 > rect.left && x < rect.right && y + 50 > rect.top && y < rect.bottom
+    centerX > cupRect.left &&
+    centerX < cupRect.right &&
+    bottomY > cupRect.top &&
+    bottomY < cupRect.bottom
   );
 }
 
 function startPouring() {
-  if (!pourInterval) {
-    stream.style.height = "80px";
-    pourInterval = setInterval(() => {
-      if (fillLevel < 100) {
-        fillLevel++;
-        fill.style.height = fillLevel + "%";
-      } else {
-        stopPouring();
-      }
-    }, 100);
-  }
+  if (pourInterval) return;
+
+  stream.style.height = "80px";
+  pourInterval = setInterval(() => {
+    if (fillLevel < 100) {
+      fillLevel += 1;
+      fill.style.height = `${fillLevel}%`;
+    } else {
+      stopPouring();
+    }
+  }, 100);
 }
 
 function stopPouring() {
