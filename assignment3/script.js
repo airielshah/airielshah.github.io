@@ -69,3 +69,12 @@ document.getElementById("finishBtn").addEventListener("click", () => {
     alert("Missing items: " + missing.join(", "));
   }
 });
+
+// Toggle Mute/Unmute
+const bgMusic = document.getElementById("bgMusic");
+const muteButton = document.getElementById("muteButton");
+
+muteButton.addEventListener("click", () => {
+  bgMusic.muted = !bgMusic.muted;
+  muteButton.textContent = bgMusic.muted ? "🔇" : "🔊";
+});

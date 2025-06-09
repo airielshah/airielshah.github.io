@@ -7,16 +7,44 @@
   </head>
   <body>
     <div class="header">
-      <div class="logo">BREAKFAST <span>Like Malaysian</span></div>
-      <h1 class="title">Let’s Make Nasi Lemak</h1>
+      <div class="logo">
+        <img src="images/logo.png" alt="Breakfast Logo" />
+      </div>
+      <div class="title">Let's Make Nasi Lemak</div>
+      <div class="home-button">
+        <a href="index.html" title="Home">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="48"
+            height="48"
+            viewBox="0 0 64 64"
+          >
+            <path
+              d="M 32 8 C 31.08875 8 30.178047 8.3091875 29.435547 8.9296875 L 8.8007812 26.171875 C 8.0357812 26.810875 7.7634844 27.925203 8.2714844 28.783203 C 8.9184844 29.875203 10.35025 30.088547 11.28125 29.310547 L 12 28.710938 L 12 47 C 12 49.761 14.239 52 17 52 L 47 52 C 49.761 52 52 49.761 52 47 L 52 28.712891 L 52.71875 29.3125 C 53.09275 29.6255 53.546047 29.777344 53.998047 29.777344 C 54.693047 29.777344 55.382672 29.416656 55.763672 28.722656 C 56.228672 27.874656 55.954891 26.803594 55.212891 26.183594 L 52 23.498047 L 52 15 C 52 13.895 51.105 13 50 13 L 48 13 C 46.895 13 46 13.895 46 15 L 46 18.484375 L 34.564453 8.9296875 C 33.821953 8.3091875 32.91125 8 32 8 z M 32 12.152344 C 32.11475 12.152344 32.228766 12.191531 32.322266 12.269531 L 48 25.369141 L 48 46 C 48 47.105 47.105 48 46 48 L 38 48 L 38 34 C 38 32.895 37.105 32 36 32 L 28 32 C 26.895 32 26 32.895 26 34 L 26 48 L 18 48 C 16.895 48 16 47.105 16 46 L 16 25.367188 L 31.677734 12.269531 C 31.771234 12.191531 31.88525 12.152344 32 12.152344 z"
+            ></path>
+          </svg>
+        </a>
+        <button id="muteButton">🔊</button>
+      </div>
     </div>
+
+    <!-- Hidden audio element -->
+    <!-- Breakfast in Paris by Alex-Productions | https://onsound.eu/
+Music promoted by https://www.chosic.com/free-music/all/
+Creative Commons CC BY 3.0
+https://creativecommons.org/licenses/by/3.0/
+  -->
+    <audio id="bgMusic" autoplay loop>
+      <source src="audio/background-music.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
 
     <div class="game-container">
       <div class="left-panel">
         <div class="recipe">
-          Here are the recepi, please follow it according to the step. Add Rice,
-          Egg, Cucumber, Anchovies, Sambal. After finish it, click Finish to see
-          the result.
+          <img src="images/receipt1.png" alt="Nasi Lemak Recipe" />
         </div>
         <button id="resetBtn">Reset</button>
         <button id="finishBtn">Finish</button>
@@ -30,15 +58,6 @@
       </div>
 
       <div class="right-panel">
-        <!-- <div class="item-box" draggable="true" data-name="Rice">
-          <div class="tooltip-container">
-            <img src="images/rice.png" alt="Rice" />
-            <div class="tooltip-image">
-              <img src="images/rice-desc.png" alt="Rice description" />
-            </div>
-          </div>
-          <div class="label">Rice</div>
-        </div> -->
         <div class="item-box" draggable="true" data-name="Rice">
           <img src="images/rice.png" alt="Rice" />
           <div class="label">Rice</div>
@@ -59,25 +78,25 @@
           <img src="images/sambal.png" alt="Sambal" />
           <div class="label">Sambal</div>
         </div>
-        <div class="item-box" draggable="true" data-name="Rice">
-          <img src="images/rice.png" alt="Rice" />
-          <div class="label">Rice</div>
+        <div class="item-box" draggable="true" data-name="Fried-egg">
+          <img src="images/fried-egg.png" alt="Fried-egg" />
+          <div class="label">Fried Egg</div>
         </div>
-        <div class="item-box" draggable="true" data-name="Egg">
-          <img src="images/egg.png" alt="Egg" />
-          <div class="label">Egg</div>
+        <div class="item-box" draggable="true" data-name="Fried-chicken">
+          <img src="images/fried-chicken.png" alt="Fried-chicken" />
+          <div class="label">Fried Chicken</div>
         </div>
-        <div class="item-box" draggable="true" data-name="Cucumber">
-          <img src="images/cucumber.png" alt="Cucumber" />
-          <div class="label">Cucumber</div>
+        <div class="item-box" draggable="true" data-name="Beef-rendang">
+          <img src="images/beef-rendang.png" alt="Beef-rendang" />
+          <div class="label">Beef Rendang</div>
         </div>
-        <div class="item-box" draggable="true" data-name="Anchovies">
-          <img src="images/anchovies.png" alt="Anchovies" />
-          <div class="label">Anchovies</div>
+        <div class="item-box" draggable="true" data-name="Prawn-sambal">
+          <img src="images/prawn-sambal.png" alt="Prawn-sambal" />
+          <div class="label">Prawn Sambal</div>
         </div>
-        <div class="item-box" draggable="true" data-name="Sambal">
-          <img src="images/sambal.png" alt="Sambal" />
-          <div class="label">Sambal</div>
+        <div class="item-box" draggable="true" data-name="Squid-sambal">
+          <img src="images/squid-sambal.png" alt="Squid-sambal" />
+          <div class="label">Squid Sambal</div>
         </div>
       </div>
     </div>

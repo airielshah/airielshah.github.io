@@ -6,29 +6,56 @@ body {
 
 .header {
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
+  gap: 20px;
+  justify-content: space-between;
   padding: 20px 40px;
-  background: #fef1e6;
+  background-color: #f3f6eb;
+  position: relative;
+  height: 50px;
 }
 
-.logo {
-  font-family: "Georgia", serif;
-  font-size: 28px;
-  color: #e24d26;
-}
-
-.logo span {
-  display: block;
-  font-family: "Brush Script MT", cursive;
-  font-size: 18px;
-  color: #733;
+.logo img {
+  height: 70px;
+  width: auto;
 }
 
 .title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 24px;
   font-weight: bold;
-  color: #000;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.home-button {
+  display: flex;
+  align-items: center;
+}
+
+.home-button svg {
+  transition: transform 0.2s ease;
+}
+
+.home-button a:hover svg {
+  transform: scale(1.2);
+  stroke: #000;
+}
+
+#muteButton {
+  background: none;
+  margin-left: 16px;
+  border: none;
+  padding: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#muteButton:hover {
+  transform: scale(1.2);
 }
 
 .game-container {
@@ -49,12 +76,16 @@ body {
 }
 
 .recipe {
-  background: #fcea75;
-  padding: 20px;
-  border-radius: 10px;
-  width: 100%;
-  text-align: center;
-  font-weight: bold;
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: flex-start; /* vertical center (optional) */
+  height: 100%; /* or set a fixed height */
+}
+
+.recipe img {
+  display: block;
+  max-width: 170%;
+  height: auto;
 }
 
 button {
@@ -64,6 +95,13 @@ button {
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .plate-area {
@@ -147,13 +185,23 @@ button {
   width: 100px;
   cursor: grab;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  user-select: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .item-box img {
   width: 60px;
   height: 60px;
   pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+.item-box:hover img {
+  transform: scale(1.1);
 }
 
 .label {
@@ -161,36 +209,4 @@ button {
   font-size: 14px;
   font-weight: bold;
   text-align: center;
-}
-
-/* Item description on images */
-.tooltip-container {
-  position: relative;
-  display: inline-block;
-}
-
-.tooltip-image {
-  position: absolute;
-  top: -20%;
-  right: 0%;
-  transform: translateX(-50%);
-  display: none;
-  width: 200px;
-  height: 290px;
-  padding: 5px;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  z-index: 5;
-}
-
-.tooltip-container:hover .tooltip-image {
-  display: block;
-}
-
-.tooltip-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
 }
