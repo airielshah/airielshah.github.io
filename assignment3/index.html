@@ -6,11 +6,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <!-- Breakfast Like Malaysian is a web browser game by utilising the click,
-   hold and drag and drop actions. The theme of this game correlates with the title of the game
-   which we build the Famous Malaysian Breakfast (Nasi Lemak). The game itself will allow users
-   to acknowledge and learn about the cultural and signature food in Malaysia. -->
+  <!-- Breakfast Like Malaysian is a web browser game by utilising the click, hold and drag and drop actions.
+   The theme of this game correlates with the title of the game which we build the Famous Malaysian Breakfast (Nasi Lemak).
+   The game itself will allow users to acknowledge and learn about the cultural and signature food in Malaysia. -->
 
+  <!-- In this website, there will be a several part of layout to divide the function based on the items and instructions/reciept order -->
+  <!-- The header will be showing the logo on the left side, title page on the center and home button & background music mute button on the right -->
+
+  <!-- This is the header of the webpage, i'll reused the logo i made based on the presentation for this website which is "Breakfast like Malaysian" to give the
+   branding of the webpage. In the middle, the title was mentions to make a clear introduction of the webpage purposed. I used the icon for the home page to add
+   minimalist design, same with the mute/unmute button. -->
   <body>
     <div class="header">
       <div class="logo">
@@ -37,17 +42,19 @@
     </div>
 
     <!-- Hidden audio element -->
-    <!-- Breakfast in Paris by Alex-Productions | https://onsound.eu/
-Music promoted by https://www.chosic.com/free-music/all/
-Creative Commons CC BY 3.0
-https://creativecommons.org/licenses/by/3.0/
+    <!-- Breakfast in Paris by Alex-Productions | https://onsound.eu/ Music promoted by https://www.chosic.com/free-music/all/
+Creative Commons CC BY 3.0 https://creativecommons.org/licenses/by/3.0/
   -->
+    <!-- This is the background music i apply to add some interesting environment while playing the game -->
     <audio id="bgMusic" autoplay loop>
       <source src="audio/background-music.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
     </audio>
 
+    <!-- The Game Container -->
+    <!-- This is where the game being divided using container and panel to ditermind the function of each items and layout. -->
     <div class="game-container">
+      <!-- The left panel will be the recipe/order receipt to ditermind what kind of items need to be put inside the plate to complete the game -->
+      <!-- Several button were put under the receipt order like "reset", "finish" and "next order" to take the next action based on the user request. -->
       <div class="left-panel">
         <div class="recipe">
           <img src="images/receipt1.png" alt="Nasi Lemak Recipe" />
@@ -57,6 +64,9 @@ https://creativecommons.org/licenses/by/3.0/
         <button id="nextLevelBtn">Next Order</button>
       </div>
 
+      <!-- The middle panel/plate area/drop area -->
+      <!-- In this plate area, this is where the item were drop on to check where the items were following the request of the order based on the input data
+        on the script.js file. all the items will be positioned to looks better reasembled the dish of Nasi Lemak. -->
       <div class="plate-area">
         <div class="drop-zone outer"></div>
         <div class="drop-zone middle"></div>
@@ -64,6 +74,9 @@ https://creativecommons.org/licenses/by/3.0/
         <img src="images/plate.png" alt="Plate" class="plate-img" />
       </div>
 
+      <!-- The right panel/item area -->
+      <!-- In this panel, there were 10 different items being organised using a card method. All items were made in a same card sized and labeled with the items
+        name for easy identify. The item also labeled on data name for script.js file actions. -->
       <div class="right-panel">
         <div class="item-box" draggable="true" data-name="Rice">
           <img src="images/rice.png" alt="Rice" />

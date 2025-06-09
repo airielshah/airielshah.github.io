@@ -1,6 +1,11 @@
+// To select all draggable item boxes
 const items = document.querySelectorAll(".item-box");
+
+// To select the drop area (the plate)
 const dropZone = document.querySelector(".plate-area");
 
+// Used to define where each item should be positioned (percentage-based).
+// All items were positioned differently to assemble the looks of Nasi Lemak.
 const positions = {
   Rice: { x: 50, y: 50 },
   Cucumber: { x: 20, y: 20 },
@@ -9,6 +14,7 @@ const positions = {
   Anchovies: { x: 70, y: 75 },
 };
 
+// Used to define the size of each items when drop in the plate area.
 const sizes = {
   Rice: 280,
   Cucumber: 140,
@@ -17,30 +23,36 @@ const sizes = {
   Anchovies: 180,
 };
 
+// When user starts dragging an item to the plate area
 items.forEach((item) => {
   item.addEventListener("dragstart", (e) => {
     const name = item.getAttribute("data-name");
+    // It will pass the item's name to the drop event
     e.dataTransfer.setData("text/plain", name);
   });
 });
 
+// This used to allow drop by preventing default behavior
 dropZone.addEventListener("dragover", (e) => {
   e.preventDefault();
 });
 
+// Handle the drop action
 dropZone.addEventListener("drop", (e) => {
   e.preventDefault();
-  const itemName = e.dataTransfer.getData("text/plain");
 
+  const itemName = e.dataTransfer.getData("text/plain");
   if (positions[itemName]) {
     if (dropZone.querySelector(`[data-name="${itemName}"]`)) return;
 
+    // Create a new dropped item
     const newItem = document.createElement("div");
     newItem.className = "item";
     newItem.setAttribute("data-name", itemName);
     newItem.style.left = positions[itemName].x + "%";
     newItem.style.top = positions[itemName].y + "%";
 
+    // Create and add image inside the item
     const img = document.createElement("img");
     img.src = `images/${itemName.toLowerCase()}.png`;
     img.alt = itemName;
@@ -52,17 +64,23 @@ dropZone.addEventListener("drop", (e) => {
   }
 });
 
+// The reset button funtions.
+// Used to clear the items from the drop area.
 document.getElementById("resetBtn").addEventListener("click", () => {
   dropZone.querySelectorAll(".item").forEach((item) => item.remove());
 });
 
+// The finish button check.
+// Checks if all required items are dropped, if the items were not being drop or incomplete. There will be a message appear.
 document.getElementById("finishBtn").addEventListener("click", () => {
   const needed = Object.keys(positions);
   const dropped = Array.from(dropZone.querySelectorAll(".item")).map((item) =>
     item.getAttribute("data-name")
   );
+
   const missing = needed.filter((item) => !dropped.includes(item));
 
+  // Show result message based on the drop items actions.
   if (missing.length === 0) {
     alert("Well done! You made Nasi Lemak!");
   } else {
@@ -70,7 +88,7 @@ document.getElementById("finishBtn").addEventListener("click", () => {
   }
 });
 
-// Toggle Mute/Unmute
+// The mute button actions based on the assignment 2.
 const bgMusic = document.getElementById("bgMusic");
 const muteButton = document.getElementById("muteButton");
 
@@ -79,7 +97,7 @@ muteButton.addEventListener("click", () => {
   muteButton.textContent = bgMusic.muted ? "🔇" : "🔊";
 });
 
-// Next level button for redirect to next order game page.
+// This were used to redirect to next page for the next level.
 document.getElementById("nextLevelBtn").addEventListener("click", function () {
-  window.location.href = "next-level.html"; // Change this to your actual next level page
+  window.location.href = "next-level.html";
 });

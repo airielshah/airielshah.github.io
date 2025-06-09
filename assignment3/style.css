@@ -1,9 +1,12 @@
+/* This is the body style, it was set to have a clean font and background for the page. */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   background: #fef1e6;
 }
 
+/* The header style were styled to make sure the items inside were spacing based on the layout planned on the presentation.
+By using display flex, align items and justify content: space-between, the item will be spaced neatly on the header. */
 .header {
   display: flex;
   align-items: center;
@@ -15,11 +18,13 @@ body {
   height: 50px;
 }
 
+/* Since I been using png file for logo, it need to be resize to fit inside the header perfectly. */
 .logo img {
   height: 80px;
   width: auto;
 }
 
+/* The title were centered absolutely within the header wide.  */
 .title {
   position: absolute;
   left: 50%;
@@ -30,20 +35,24 @@ body {
   white-space: nowrap;
 }
 
+/* This were used to wrap the home button and mute button. */
 .home-button {
   display: flex;
   align-items: center;
 }
 
+/* Styled the svg home button. */
 .home-button svg {
   transition: transform 0.2s ease;
 }
 
+/* This was made to have an interaction effect when hover the home button. */
 .home-button a:hover svg {
   transform: scale(1.2);
   stroke: #000;
 }
 
+/* This is for Mute button styling, i made it in a box to make the button looks more clean and visible. */
 #muteButton {
   background: none;
   margin-left: 16px;
@@ -54,10 +63,13 @@ body {
   transition: transform 0.2s;
 }
 
+/* This is hover button effect for mute button. */
 #muteButton:hover {
   transform: scale(1.2);
 }
 
+/* The main game layout */
+/* This is the layout of the main area, i used a solid background to match the plate colour. */
 .game-container {
   display: flex;
   justify-content: space-between;
@@ -66,6 +78,7 @@ body {
   height: 90vh;
 }
 
+/* On the left panel it is what holds the instructions/order receipt and actions button like reset, finish and next. */
 .left-panel {
   width: 10%;
   display: flex;
@@ -75,19 +88,23 @@ body {
   gap: 20px;
 }
 
+/* This is used to center the panel for the receipt image. */
 .recipe {
   display: flex;
-  justify-content: center; /* horizontal center */
-  align-items: flex-start; /* vertical center (optional) */
-  height: 100%; /* or set a fixed height */
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
 }
 
+/* This were used to makes receipt image responsive/resized. */
 .recipe img {
   display: block;
   max-width: 170%;
   height: auto;
 }
 
+/* The buttons style */
+/* This is the general button styles, all button in this panel were styled in same design. */
 button {
   background: #fcea75;
   border: none;
@@ -99,11 +116,13 @@ button {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Same with homepage button animation, I apply the hover animation effect on these button too. */
 button:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* For the next level button, I change the design a bit to make it a bit different compared to others. It should be standout more for user futher actions. */
 #nextLevelBtn {
   margin-top: 10px;
   padding: 10px 20px;
@@ -111,6 +130,8 @@ button:hover {
   background: #f3f6eb;
 }
 
+/* The plate area */
+/* This is where the items being drop. I used the plate as the container for the drop zone. */
 .plate-area {
   position: relative;
   width: 400px;
@@ -123,6 +144,7 @@ button:hover {
   align-items: center;
 }
 
+/* By using the plage image, all items will be appear in fron the image makes it looks like the actual plate. */
 .plate-img {
   position: absolute;
   width: 150%;
@@ -131,17 +153,21 @@ button:hover {
   z-index: 0;
 }
 
+/* All the drop items will apprear above the plate. */
 .plate-area .item {
   position: absolute;
   z-index: 1;
 }
 
+/* This is where the zones were items can be dropped. */
 .drop-zone {
   position: absolute;
   border: 1px dashed #c44;
   border-radius: 50%;
 }
 
+/* OPtional drop zone sizes, it wasn't supposed to be three different zone. I used ChatGPT to guide the code making for this drop zone as it were a bit difficult to rearrange the items in different positions. */
+/* Reference: OpenAI. (2025). ChatGPT (Mar 14 version). */
 .outer {
   width: 99%;
   height: 99%;
@@ -161,6 +187,8 @@ button:hover {
   left: 33%;
 }
 
+/* The right panel - Item boxes */
+/* This is where the right panel used grid system for arranging the item boxes. */
 .right-panel {
   width: 20%;
   display: grid;
@@ -170,18 +198,21 @@ button:hover {
   align-items: center;
 }
 
+/* Item that are inside the drop zones */
 .drop-zone .item {
   position: absolute;
   transform: translate(-50%, -50%);
   cursor: default;
 }
 
+/* Items displayed on the plate. */
 .plate-area .item {
   position: absolute;
   transform: translate(-50%, -50%);
   cursor: default;
 }
 
+/* Each draggable item box, i apply some drop shadow in the box since it wasn't possible to put the drop shadow on the items. */
 .item-box {
   display: flex;
   flex-direction: column;
@@ -195,11 +226,13 @@ button:hover {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* This is where the hover effect were apply when the cursor hover the items. */
 .item-box:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* Item image inside the box being resized to fit the screen page. */
 .item-box img {
   width: 60px;
   height: 60px;
@@ -207,10 +240,12 @@ button:hover {
   transition: transform 0.2s ease;
 }
 
+/* Slight scale on item when cursor hover it. */
 .item-box:hover img {
   transform: scale(1.1);
 }
 
+/* Label under each items */
 .label {
   margin-top: 5px;
   font-size: 14px;
