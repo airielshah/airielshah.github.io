@@ -78,3 +78,8 @@ muteButton.addEventListener("click", () => {
   bgMusic.muted = !bgMusic.muted;
   muteButton.textContent = bgMusic.muted ? "🔇" : "🔊";
 });
+
+// Next level button for redirect to next order game page.
+document.getElementById("nextLevelBtn").addEventListener("click", function () {
+  window.location.href = "next-level.html"; // Change this to your actual next level page
+});

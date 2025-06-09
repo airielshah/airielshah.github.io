@@ -16,7 +16,7 @@ body {
 }
 
 .logo img {
-  height: 70px;
+  height: 80px;
   width: auto;
 }
 
@@ -102,6 +102,13 @@ button {
 button:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#nextLevelBtn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #f3f6eb;
 }
 
 .plate-area {
